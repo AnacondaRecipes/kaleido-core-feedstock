@@ -47,8 +47,7 @@ requirements:
     - sqlite  # [linux]
     - fontconfig         # [linux]
     - fonts-conda-forge  # [linux]
-    - __osx >=10.11      # [osx]
-    - mathjax =2.7
+    - mathjax 2.7.5
 
 about:
   home: https://github.com/plotly/Kaleido

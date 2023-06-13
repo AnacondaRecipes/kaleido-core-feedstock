@@ -1,5 +1,5 @@
-set APP_DIR=%PREFIX%\Library\bin\KaleidoApp
-set LAUNCH_SCRIPT=%PREFIX%\Library\bin\kaleido.cmd
+set APP_DIR=%LIBRARY_BIN%\KaleidoApp
+set LAUNCH_SCRIPT=%LIBRARY_BIN%\kaleido.cmd
 set BIN_LOCATION=%APP_DIR%/kaleido.cmd
 
 mkdir %APP_DIR%
