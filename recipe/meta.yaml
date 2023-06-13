@@ -46,7 +46,6 @@ requirements:
     - nss     # [linux]
     - sqlite  # [linux]
     - fontconfig         # [linux]
-    - fonts-conda-forge  # [linux]
     - mathjax 2.7.5
 
 about:
