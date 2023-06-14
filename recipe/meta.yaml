@@ -47,7 +47,8 @@ requirements:
     - nss     # [linux]
     - sqlite  # [linux]
     - fontconfig         # [linux]
-    - mathjax 2.7.5
+    - fonts-anaconda  # [linux]
+    - mathjax 2.7
 
 about:
   home: https://github.com/plotly/Kaleido
