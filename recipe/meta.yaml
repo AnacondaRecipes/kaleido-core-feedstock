@@ -9,7 +9,7 @@ source:
   - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_x64.zip  # [linux and x86_64]
     sha256: 3590409ae4fdce263bd4d8c66002f785aec7449fff45e953d337b16c91d17a5d  # [linux and x86_64]
 
-  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_arm64.zip  # [linux and arch64]
+  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_arm64.zip  # [linux and aarch64]
     sha256: f3ed0278d185f20509407616a9c253dbf3fe2f70b29f656f1cc31b7fdac0d214  # [linux and aarch64]
 
   - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_mac_x64.zip  # [osx and x86_64]
