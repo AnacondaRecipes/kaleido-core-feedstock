@@ -28,25 +28,24 @@ build:
     # Chromium loads sqlite dynamically
     - sqlite  # [linux]
   missing_dso_whitelist:
-    - /usr/lib/*  # [osx or arm64]
-    - /System/Library/Frameworks/*  # [osx or arm64]
-  binary_relocation: false  # [osx or arm64]
+    - /usr/lib/*  # [osx]
+    - /System/Library/Frameworks/*  # [osx]
+  binary_relocation: false  # [osx]
 
 requirements:
   build:
     - {{ compiler('c') }}
-      # - sysroot_linux-64 2.17  # [linux]
   host:
-    - expat {{ expat }}   # [linux]
-    - nspr 4.35           # [linux]
-    - nss 3.89.1          # [linux]
-    - sqlite {{ sqlite }} # [linux]
+    - expat {{ expat }}  # [linux]
+    - nspr 4.35  # [linux]
+    - nss 3.89.1  # [linux]
+    - sqlite {{ sqlite }}  # [linux]
   run:
-    - expat   # [linux]
-    - nspr    # [linux]
-    - nss     # [linux]
+    - expat  # [linux]
+    - nspr  # [linux]
+    - nss  # [linux]
     - sqlite  # [linux]
-    - fontconfig         # [linux]
+    - fontconfig  # [linux]
     - fonts-anaconda  # [linux]
     - mathjax 2.7
 
