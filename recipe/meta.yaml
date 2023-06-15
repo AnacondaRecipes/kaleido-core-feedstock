@@ -6,49 +6,48 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_x64.zip  # [linux64]
-  sha256: 3590409ae4fdce263bd4d8c66002f785aec7449fff45e953d337b16c91d17a5d  # [linux64]
+  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_x64.zip  # [linux and x86_64]
+    sha256: 3590409ae4fdce263bd4d8c66002f785aec7449fff45e953d337b16c91d17a5d  # [linux and x86_64]
 
-  url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_arm64.zip  # [aarch64]
-  sha256: f3ed0278d185f20509407616a9c253dbf3fe2f70b29f656f1cc31b7fdac0d214  # [aarch64]
+  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_minimal_linux_arm64.zip  # [linux and aarch64]
+    sha256: f3ed0278d185f20509407616a9c253dbf3fe2f70b29f656f1cc31b7fdac0d214  # [linux and aarch64]
 
-  url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_mac_x64.zip  # [osx]
-  sha256: 57e3e1a1d98f1c25f565a1d37cbc2baf0509c13e37e6b92f7d3cb89c53b28f27  # [osx]
+  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_mac_x64.zip  # [osx and x86_64]
+    sha256: 57e3e1a1d98f1c25f565a1d37cbc2baf0509c13e37e6b92f7d3cb89c53b28f27  # [osx and x86_64]
 
-  url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_mac_arm64.zip  # [arm64]
-  sha256: e5cc7bceb096db135384928d1f11b115c5697dcd1f66e7064ddb91562a61d55f  # [arm64]
+  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_mac_arm64.zip  # [osx and arm64]
+    sha256: e5cc7bceb096db135384928d1f11b115c5697dcd1f66e7064ddb91562a61d55f  # [osx and arm64]
 
-  url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_win_x64.zip  # [win]
-  sha256: 22857d6696fe348fea166b2950263e8c2fa41e465a1a354f2e09a6f90dfe6df3  # [win]
+  - url: https://github.com/plotly/Kaleido/releases/download/v{{ version }}/kaleido_win_x64.zip  # [win]
+    sha256: 22857d6696fe348fea166b2950263e8c2fa41e465a1a354f2e09a6f90dfe6df3  # [win]
 
 build:
   number: 0
+  skip: true  # [linux and (s390x or ppc64le)]
   ignore_run_exports:
     # Chromium loads sqlite dynamically
     - sqlite  # [linux]
   missing_dso_whitelist:
-    - /usr/lib/*  # [osx or arm64]
-    - /System/Library/Frameworks/*  # [osx or arm64]
-  binary_relocation: false  # [osx or arm64]
+    - /usr/lib/*  # [osx]
+    - /System/Library/Frameworks/*  # [osx]
+  binary_relocation: false  # [osx]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - sysroot_linux-64 2.17  # [linux]
   host:
-    - expat   # [linux]
-    - nspr    # [linux]
-    - nss     # [linux]
-    - sqlite  # [linux]
+    - expat {{ expat }}  # [linux]
+    - nspr 4.35  # [linux]
+    - nss 3.89.1  # [linux]
+    - sqlite {{ sqlite }}  # [linux]
   run:
-    - expat   # [linux]
-    - nspr    # [linux]
-    - nss     # [linux]
+    - expat  # [linux]
+    - nspr  # [linux]
+    - nss  # [linux]
     - sqlite  # [linux]
-    - fontconfig         # [linux]
-    - fonts-conda-forge  # [linux]
-    - __osx >=10.11      # [osx]
-    - mathjax =2.7
+    - fontconfig  # [linux]
+    - fonts-anaconda  # [linux]
+    - mathjax 2.7
 
 about:
   home: https://github.com/plotly/Kaleido
